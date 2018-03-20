@@ -1,0 +1,143 @@
+<p>
+  private-profile works!
+</p>
+
+
+
+<section *ngIf="user"
+>
+  <div>
+
+
+    <!-- personal data -->
+
+
+        <div *ngIf="!showEditUsername">
+          <h4>{{user.username}}
+
+            <button (click)="showEditUsername=true">edit</button>
+
+          </h4>
+        </div>
+        <div *ngIf="showEditUsername">
+          <input (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.username">
+        </div>
+ 
+    <!-- profile info -->
+
+    <div class="card-content">
+      <h4>My Profile:</h4>
+
+      <!-- userName -->
+      <div *ngIf="!showEditUsername">
+        <p>Username: {{user.username}}
+          <button class="edit" (click)="showEditUsername=true">edit</button>
+        </p>
+      </div>
+      <div *ngIf="showEditUsername">
+        <input (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.username">
+      </div>
+
+      <!-- Last name -->
+      <div *ngIf="!showEditLastName">
+        <p>Last Name: {{user.lastName}}
+          <button class="edit" (click)="showEditLastName=true">edit</button>
+        </p>
+      </div>
+      <div *ngIf="showEditLastName">
+        <input (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.lastName">
+      </div>
+
+      <!-- Age -->
+      <div *ngIf="!showEditAge">
+        <p>Age: {{user.age}} years old!
+          <button class="edit" (click)="showEditAge=true">edit</button>
+        </p>
+      </div>
+      <div *ngIf="showEditAge">
+        <input (keydown.enter)="sendModification()" type="number" [(ngModel)]="user.age">
+      </div>
+
+      <!-- phoneNumber -->
+
+      <div *ngIf="!showEditphoneNumber">
+          <p>Your Phone Number: {{user.phoneNumber}} 
+            <button class="edit" (click)="showEditphoneNumber=true">edit</button>
+          </p>
+        </div>
+        <div *ngIf="showEditphoneNumber">
+          <input (keydown.enter)="sendModification()" type="number" [(ngModel)]="user.phoneNumber">
+        </div>
+
+
+      <!-- email -->
+      <div *ngIf="!showEditEmail">
+        <p>Email: {{user.email}}
+          <button class="edit" (click)="showEditEmail=true">edit</button>
+        </p>
+      </div>
+      <div *ngIf="showEditEmail">
+        <input (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.email">
+      </div>
+
+         <!-- Belief -->
+         <div *ngIf="!showEditBelief">
+            <p>Your Belief: {{user.belief}}
+              <button class="edit" (click)="showEditBelief=true">edit</button>
+            </p>
+          </div>
+          <div *ngIf="showEditBelief">
+            <input (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.belief">
+          </div>
+
+           <!-- Citation -->
+         <div *ngIf="!showEditCitation">
+            <p>Since you're bored, you have time to write one of your favourite citation here please: {{user.citation}}
+              <button class="edit" (click)="showEditCitation=true">edit</button>
+            </p>
+          </div>
+          <div *ngIf="showEditCitation">
+            <input (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.citation">
+          </div>
+
+      <!-- AverageBoredTimePerWeek -->
+      <div *ngIf="!showEditAverageBoredTimePerWeek">
+        <p>Bored Time hour per week: {{user.averageBoredTimePerWeek}}
+          <button class="edit" (click)="showEditAverageBoredTimePerWeek=true">edit</button>
+        </p>
+      </div>
+      <div *ngIf="showEditAverageBoredTimePerWeek">
+        <input (keydown.enter)="sendModification()" type="number" [(ngModel)]="user.averageBoredTimePerWeek">
+      </div>
+
+      <!-- image -->
+      <div>
+          <img [src]="'http://localhost:3000/' + user.image">
+        <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+        <button (click)="updatePhoto()">Update Photo</button>
+
+      </div>
+
+      <button  (click)="deleteProfile()">Delete my profile</button>
+
+
+    </div>
+  </div>
+</section>
+
+<section *ngIf="proposi">
+
+  <p>{{proposi.title}}</p>
+
+  <!-- title -->
+  <div *ngIf="!showEditTitle">
+      <p>Proposition: {{proposi.title}}
+        <button class="edit" (click)="showEditTitle=true">edit</button>
+      </p>
+    </div>
+    <div *ngIf="showEditTitle">
+      <input (keydown.enter)="sendProposiModification()" type="text" [(ngModel)]="proposi.title">
+    </div>
+
+
+</section>

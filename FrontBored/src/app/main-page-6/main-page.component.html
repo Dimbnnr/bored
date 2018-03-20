@@ -1,0 +1,108 @@
+<p>
+  main-page works!
+</p>
+
+
+<h1>{{ titl }}</h1>
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+
+
+<div class="container">
+  <h1>Google Maps Places Autocomplete Using Angular 2</h1>
+  <!-- <div class="form-group">
+ <input type="text" placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #search>
+  </div> -->
+  </div>
+
+
+<agm-map *ngIf="usersList" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+
+
+
+<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+ 
+  <agm-marker *ngFor="let u of usersList" (markerClick)="markerClick(m)"
+      
+  [iconUrl]="'http://localhost:3000/' + u.image"
+  [latitude]="u.location.coordinates[0]" 
+  [longitude]="u.location.coordinates[1]">
+
+  <agm-info-window >
+    {{u.username}} {{u.lastName}} 
+    <br> 
+    {{u.age}}
+    <p  *ngFor="let prop of propositionList">
+    <span *ngIf="prop.owner === u._id">
+        {{prop.title}}
+    </span>
+
+   <br>
+    <a *ngIf="prop.owner === u._id" [routerLink]="['../user', u._id, 'proposition-overview' , prop._id]" >Let's see:</a>
+   </p>
+   
+
+
+    
+   
+    
+  </agm-info-window>
+
+</agm-marker>
+
+
+<!-- [label]="u.username" -->
+
+</agm-map>
+
+<br>
+<br>
+
+<h3>Your Proposition (add a if // click sur Sport or Blabla or Mezcal & Coffee)</h3>
+
+<div>
+  <form  (ngSubmit)="sendPropositionForm(myForm)" #myForm="ngForm">
+    
+      <div class="row">
+        <label for="title">Your Activity Proposition!</label>
+        <input placeholder="Your Activity Proposition!" id="title" [(ngModel)]="title" name="title" type="text">
+    </div>
+
+    <div class="row">
+        <label for="startTimeDate">When you'd like to make it happen ?</label>
+        <input placeholder="When you'd like to make it happen ?" id="startTimeDate" [(ngModel)]="startTimeDate" name="startTimeDate" type="date">
+    </div>
+
+    <div class="row">
+        <label for="startTimeHour">At which hour it starts ?</label>
+        <input placeholder="At which hour it starts ?" id="startTimeHour" [(ngModel)]="startTimeHour" name="startTimeHour" type="time"> 
+    </div>
+    <!-- <span>Date: {{ today | date:'shortTime' }} </span> -->
+    
+    <div class="row">
+        <label for="location">Where do you want to realize your activity?</label>
+        <input placeholder="Where do you want to realize your activity?" id="location" [(ngModel)]="location" name="location" type="text"> 
+    </div>
+
+    <!-- héhéhé shortcut mini front hack here -->
+    <input [(ngModel)]="userid" name="id" type="hidden">
+    
+ 
+    <button type="submit">
+     Create your #Bored Solution / Way Out!
+    </button>
+  </form>
+</div>
+<!-- 
+<div *ngFor = "let user of UsersList">
+  <h3>{{user.username}} {{user.lastName}}</h3> 
+  <ul>
+    <li>{{user.age}}</li>
+    <li>{{user.averageBoredTimePerWeek}}</li>
+  </ul>     
+
+<img [src]="'http://localhost:3000/' + user.image">
+</div> -->
+
+

@@ -1,0 +1,43 @@
+<p>
+  proposition-overview works!
+</p>
+
+
+<div *ngIf="user">
+
+
+  <h2><img id="photo" [src]="'http://localhost:3000/' + user.image" alt="doesn't work"> {{user.username}} {{user.lastName}} Details: </h2>
+  <ul>
+    
+    <li>{{user.age}}</li>
+    <li>{{user.email}} <strong>+ Reviews</strong> </li>
+    <li>{{user.phoneNumber}}</li>
+    <!-- <li>{{user.image}}</li> -->
+  </ul>
+
+_____________
+
+<h2>{{user.username}}' Proposition:</h2>
+</div>
+
+<div *ngIf="proposi">
+<h3> {{proposi.title}}</h3>
+<ul>
+  <li>{{proposi.startTimeHour}}</li>
+  <li>{{proposi.startTimeDate | date: 'fullDate'}}</li>
+  <!-- <li>{{proposi.endTimeHour}}</li> -->
+  <li>{{proposi.location}} + Add Participant / endTimeHour</li>
+  <li> <strong>Add a comment from user Y!!! </strong></li>
+</ul>
+</div>
+<!-- 
+<div *ngIf="single">
+
+  <h1>{{single.name}}</h1>
+  <h3>{{single.brand}}</h3>    
+  <div *ngFor="let spec of single.specs">
+    <li>{{spec}}</li>
+  </div>
+  <img id="photo" [src]="single.image">
+
+</div> -->

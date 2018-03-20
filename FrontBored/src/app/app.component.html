@@ -1,0 +1,36 @@
+<head>
+
+ </head>
+
+
+
+   <!-- However, if your <button> tag is styled using CSS and doesn't look like the system's widget... Do yourself a favor, create a new class for your <a> tag and style it the same way. -->
+
+ <!-- <form style="display: inline" [routerLink]="['../user', u._id, 'proposition-overview' , prop._id]" method="get">
+    <button>Edit Profile</button>
+  </form> -->
+
+  <!-- <button *ngIf="user" (click)="logout()" >Logout</button> -->
+
+
+  <section *ngIf="user">
+        
+
+        <a (click)="logout()">Logout</a>
+
+        <p  *ngFor="let prop of propositionList">
+    
+            <span *ngIf="prop.owner === user._id">
+                    
+      <a [routerLink]="[user._id, 'private-profile', prop._id]">Edit Profile</a>
+      
+    </span>
+
+    </p>
+            
+          
+
+
+        </section>
+
+<router-outlet></router-outlet>

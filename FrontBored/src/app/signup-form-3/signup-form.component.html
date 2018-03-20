@@ -1,0 +1,49 @@
+<p>
+  signup-form works!
+</p>
+
+
+
+<form (ngSubmit)="sendsignup(myForm)" #myForm="ngForm">
+
+  <input name="username" [(ngModel)]="username" type="text" placeholder="Your name:">
+  <br>
+  <input name="lastName" [(ngModel)]="lastName" type="text" placeholder="Your last name:">
+  <br>
+  <input name="age" [(ngModel)]="age" type="number" placeholder="Your age:">
+  <br> 
+  <input name="phoneNumber" [(ngModel)]="phoneNumber" type="number" placeholder="Your Phone Number:">
+  <br>
+   <!-- address -->
+   <!-- pour l edit !!! -->
+   <!-- <div *ngIf="!showEditAddress">
+    <p>Address: {{user.location.address}} <span class="edit"  (click)="showEditaddress=true ; getReadyAutocomplete()">edit</span></p>
+  </div> 
+  <div *ngIf="showEditaddress"> -->
+      <!-- <p>Address: {{user.location.adress}} <span class="edit"  (click)="showEditAdress=true ; getReadyAutocomplete()">edit</span></p> -->
+     <div>
+    <input autocorrect="off" autocapitalize="off" spellcheck="off"   #search name="location" placeholder="Your bored usual location" type="text"  [(ngModel)]="location" >
+    
+  </div>      
+
+            <br>
+
+  <input name="email" [(ngModel)]="email" type="text" placeholder="Your email:">
+  <br>
+
+    <input type="file" name="file" ng2FileSelect [uploader]="uploader" />      
+
+  <br>
+  <input name="averageBoredTimePerWeek" [(ngModel)]="averageBoredTimePerWeek" type="number" placeholder="Number of hours you use to get bored per week">
+  <br>
+  <br>
+  <input name="password" [(ngModel)]="password" type="password" placeholder="Your Password">
+  <br>
+  <input name="password2" [(ngModel)]="password2" type="password" placeholder="Confirm Password">
+  <br>
+  <button type="submit">Signup !</button>
+  <!-- <button *ngIf="password !== password2" disabled>Signup !</button> -->
+
+</form>
+
+<!-- *ngIf="password === password2" -->
