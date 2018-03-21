@@ -1,3 +1,10 @@
-<p>
-  chat works!
+<p *ngFor="let message of elChat">
+  {{message.user}}
+  <br>
+  {{message.text}} - {{message.date}}
 </p>
+
+
+
+<input #text (keydown.enter)="sendMessage(text.value)" type="text">
+  

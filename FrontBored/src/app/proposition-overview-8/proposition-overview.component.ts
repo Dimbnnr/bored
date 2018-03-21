@@ -27,6 +27,7 @@ propositionList;
       this.getDaUserById();
       // para dibujarlas en una parte tipo: historical de actividades
       this.getDaPropositions();
+      console.log(this.activateRouter.params['id']);
   }
 
 

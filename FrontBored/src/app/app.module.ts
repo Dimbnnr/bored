@@ -28,6 +28,14 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {UserAuthService} from './services/user-auth.service';
 import {UserPropositionService} from './services/user-proposition.service';
 
+// Import Material Angular
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 
 const routes = [
@@ -67,7 +75,12 @@ const routes = [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDij7dtIX0tYKTlsbTXgCJlH74mFiMaY4A',
       libraries: ['geometry', 'places']
-    })
+    }),
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [UserAuthService, UserPropositionService],
   bootstrap: [AppComponent]

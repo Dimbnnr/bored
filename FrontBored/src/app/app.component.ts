@@ -12,7 +12,7 @@ import { UserPropositionService } from './services/user-proposition.service';
 
 export class AppComponent implements OnInit {
   title = 'app';
-  user: any;
+  user = null;
   error: any;
   propositionList: Array<Object>;
 
@@ -24,30 +24,31 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.session.sendloggedin().subscribe( user => this.success(user));
 
-
     this.getDaPropositions();
-// Type LocalStorage doesnt work.
-    // this.user = JSON.parse(localStorage.getItem('user'));
-    // console.log(this.user);
   }
 
+
+success(user) {
+  this.error = null;
+  this.user = JSON.parse(localStorage.getItem('user'));
+  console.log(this.user);
+  // this.router.navigate(['/']);
+}
+
   logout() {
-    this.session.sendlogout().subscribe(
-      () => {
-        this.success(null);
-      },
-      (err) => this.errorsess(err));
+    localStorage.removeItem('user');
+    this.user = null;
+    this.router.navigate(['login']);
+
+    // this.user = JSON.stringify(localStorage.removeItem('user'));
+    // this.session.sendlogout().subscribe(
+    //   () => {
+    //     this.success(null);
+    //   },
+    //   (err) => this.errorsess(err));
     // localStorage.removeItem('user');
     // this.user = null;
     // this.router.navigate(['login']);
-  }
-
-success(user) {
-    this.user = user;
-    this.error = null;
-
-    console.log(this.user);
-    // this.router.navigate(['/']);
   }
 
   errorsess(err) {

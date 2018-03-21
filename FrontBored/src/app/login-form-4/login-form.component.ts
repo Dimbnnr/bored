@@ -21,6 +21,7 @@ export class LoginFormComponent implements OnInit {
   sendlogin() {
     this.service.sendlogin(this.user)
     .subscribe(res => {
+      localStorage.setItem('user', JSON.stringify(res));
       this.router.navigate(['dash-board']);
     });
   }

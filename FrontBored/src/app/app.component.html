@@ -10,13 +10,13 @@
     <button>Edit Profile</button>
   </form> -->
 
-  <!-- <button *ngIf="user" (click)="logout()" >Logout</button> -->
+ 
 
 
   <section *ngIf="user">
         
 
-        <a (click)="logout()">Logout</a>
+        <button (click)="logout()">Logout</button>
 
         <p  *ngFor="let prop of propositionList">
     
