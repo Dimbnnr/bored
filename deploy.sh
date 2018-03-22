@@ -1,7 +1,7 @@
 cd FrontBored
 rm -rf dist
 echo 'Building client...'
-ng build --env --aot=false
+ng build --env=prod --aot=false
 cd ..
 echo "Copy files to public..."
 rm -rf ./server/public
