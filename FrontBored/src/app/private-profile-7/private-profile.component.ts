@@ -63,11 +63,8 @@ export class PrivateProfileComponent implements OnInit {
   }
 
   getDaPropositionById() {
-    this.route.params.subscribe(params => {
-      this.propositionService.getOneProposition(params['propid'])
-      .subscribe(propos => this.proposi = propos);
-    });
-
+      this.propositionService.getAllPropositions()
+      .subscribe(propos => this.proposi = propos[propos.length - 1]);
  }
 
    // sent changes

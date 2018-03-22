@@ -1,3 +1,13 @@
 agm-map {
       height: 300px;
     }
+
+    .signup-form{
+      text-align: center;
+    
+    }
+
+
+    #signup-button{
+      font-size: 1.8rem;
+    }

@@ -1,0 +1,54 @@
+
+
+
+
+
+.first-draw-profile-pic{
+    position: absolute;
+    right: 30%;
+    top: 1%;
+}
+
+.first-draw-profile-credentials{
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    margin: 0;
+
+}
+
+.profile-content{
+padding-left: 5%;
+}
+
+
+.profile-title{
+    font-weight: 500;
+    font-size: 1.4em;
+    padding-left: 5%;
+}
+
+.profile-subtitle{
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.profile-output{
+    color: #F38181;
+    font-weight: 400;
+}
+
+.mat-raised-button.edit{
+    margin-left: 15px;
+    min-width: 1%;
+    height: 30px;
+}
+
+.delete-button{
+    text-align: center;
+    padding: 15px 0 15px 0
+}
+
+.profil-pic-input{
+    padding-bottom: 15px;
+}

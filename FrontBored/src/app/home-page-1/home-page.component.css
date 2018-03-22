@@ -2,3 +2,25 @@
     text-align: center;
     margin: 0;
 }
+
+h1{
+    font-weight: bold;
+}
+h2 {
+    font-weight: 400;
+}
+
+p{
+   font-size: 400;
+    font-style: italic;
+}
+
+
+.toCenter{
+    display: block;
+      
+      position: absolute;
+      top: 41vh;
+      right: 30vw;
+    
+}

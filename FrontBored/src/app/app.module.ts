@@ -31,9 +31,21 @@ import {UserPropositionService} from './services/user-proposition.service';
 // Import Material Angular
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+// import {MatNativeDateModule} from '@angular/material';
+
 
 
 
@@ -47,7 +59,7 @@ const routes = [
   { path: 'signup', component: SignupFormComponent },
   { path: 'login', component: LoginFormComponent},
   { path: 'main-page', component: MainPageComponent },
-  { path: ':id/private-profile/:propid', component: PrivateProfileComponent },
+  { path: ':id/private-profile', component: PrivateProfileComponent },
   { path: 'user/:id/proposition-overview/:propid', component: PropositionOverviewComponent }
 ];
 
@@ -80,7 +92,17 @@ const routes = [
     MatMenuModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatCheckboxModule,
+    MatButtonToggleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSliderModule,
+    MatCardModule,
+    MatDatepickerModule,
+    // MatNativeDateModule
   ],
   providers: [UserAuthService, UserPropositionService],
   bootstrap: [AppComponent]

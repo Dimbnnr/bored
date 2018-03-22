@@ -12,7 +12,7 @@ import { UserAuthService } from '../services/user-auth.service';
 export class ChatComponent implements OnInit {
 
   @Input() theUserId;
-  user = {username:""};
+  user = {username: ''};
   userid = '';
   idCorrecto;
   // @Output() gimmieID = new EventEmitter<any>(); 
@@ -24,8 +24,10 @@ export class ChatComponent implements OnInit {
   ) { }
   elChat = [];
   ngOnInit() {
-
-    this.idCorrecto = this.activateRoute.params._value.id;
+    this.activateRoute.params.subscribe(params=>{
+      this.idCorrecto = params.id
+    })
+     // era: _value.id ...
     console.log(this.idCorrecto)
 
     this.service.sendloggedin()

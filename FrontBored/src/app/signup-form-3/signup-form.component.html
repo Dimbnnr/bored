@@ -1,18 +1,24 @@
-<p>
-  signup-form works!
-</p>
+<app-nav-bar></app-nav-bar>
 
-
+<div class="signup-form">
 
 <form (ngSubmit)="sendsignup(myForm)" #myForm="ngForm">
 
-  <input name="username" [(ngModel)]="username" type="text" placeholder="Your name:">
+    <mat-form-field>
+  <input matInput name="username" [(ngModel)]="username" type="text" placeholder="Your name:">
+</mat-form-field>
   <br>
-  <input name="lastName" [(ngModel)]="lastName" type="text" placeholder="Your last name:">
+  <mat-form-field>
+  <input matInput name="lastName" [(ngModel)]="lastName" type="text" placeholder="Your last name:">
+</mat-form-field>
   <br>
-  <input name="age" [(ngModel)]="age" type="number" placeholder="Your age:">
+  <mat-form-field>
+  <input matInput name="age" [(ngModel)]="age" type="number" placeholder="Your age:">
+</mat-form-field>
   <br> 
-  <input name="phoneNumber" [(ngModel)]="phoneNumber" type="number" placeholder="Your Phone Number:">
+  <mat-form-field>
+  <input matInput name="phoneNumber" [(ngModel)]="phoneNumber" type="number" placeholder="Your Phone Number:">
+</mat-form-field>
   <br>
    <!-- address -->
    <!-- pour l edit !!! -->
@@ -22,28 +28,41 @@
   <div *ngIf="showEditaddress"> -->
       <!-- <p>Address: {{user.location.adress}} <span class="edit"  (click)="showEditAdress=true ; getReadyAutocomplete()">edit</span></p> -->
      <div>
-    <input autocorrect="off" autocapitalize="off" spellcheck="off"   #search name="location" placeholder="Your bored usual location" type="text"  [(ngModel)]="location" >
+        <mat-form-field>
+    <input matInput autocorrect="off" autocapitalize="off" spellcheck="off"   #search name="location" placeholder="Your bored usual location" type="text"  [(ngModel)]="location" >
+  </mat-form-field>
     
   </div>      
 
             <br>
-
-  <input name="email" [(ngModel)]="email" type="text" placeholder="Your email:">
+            <mat-form-field>
+  <input matInput name="email" [(ngModel)]="email" type="text" placeholder="Your email:">
+  
+</mat-form-field>
   <br>
 
-    <input type="file" name="file" ng2FileSelect [uploader]="uploader" />      
+    <input  type="file" name="file" ng2FileSelect [uploader]="uploader" />      
+
 
   <br>
-  <input name="averageBoredTimePerWeek" [(ngModel)]="averageBoredTimePerWeek" type="number" placeholder="Number of hours you use to get bored per week">
+  <mat-form-field>
+  <input matInput name="averageBoredTimePerWeek" [(ngModel)]="averageBoredTimePerWeek" type="number" placeholder="Number of hours you use to get bored per week">
+</mat-form-field>
   <br>
   <br>
-  <input name="password" [(ngModel)]="password" type="password" placeholder="Your Password">
+  <mat-form-field>
+  <input matInput name="password" [(ngModel)]="password" [type]="hide ? 'password' : 'text'" placeholder="Your Password">
+  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+</mat-form-field>
   <br>
-  <input name="password2" [(ngModel)]="password2" type="password" placeholder="Confirm Password">
+  <mat-form-field>
+  <input matInput name="password2" [(ngModel)]="password2" [type]="hide ? 'password' : 'text'" placeholder="Confirm Password">
+  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+</mat-form-field>
   <br>
-  <button type="submit">Signup !</button>
+  <button id="signup-button" mat-button color="primary" type="submit">Signup !</button>
   <!-- <button *ngIf="password !== password2" disabled>Signup !</button> -->
 
 </form>
-
+</div>
 <!-- *ngIf="password === password2" -->

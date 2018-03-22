@@ -1,26 +1,15 @@
 <app-nav-bar></app-nav-bar>
-<p>
-  main-page works!
-</p>
 
 
-<h1>{{ titl }}</h1>
+<h1 class="main-title">{{ titl }}</h1>
 
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
 
 
-<div class="container">
-  <h1>Google Maps Places Autocomplete Using Angular 2</h1>
-  <!-- <div class="form-group">
- <input type="text" placeholder="Search for Location" autocorrect="off" autocapitalize="off" spellcheck="off" class="form-control" #search>
-  </div> -->
-  </div>
 
 
-<agm-map *ngIf="usersList" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-
-
+<agm-map class="sticky-map" *ngIf="usersList" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
 
 <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
  
@@ -33,7 +22,7 @@
   <agm-info-window >
     {{u.username}} {{u.lastName}} 
     <br> 
-    {{u.age}}
+    {{u.age}} years old
     <p  *ngFor="let prop of propositionList">
     <span *ngIf="prop.owner === u._id">
         {{prop.title}}
@@ -60,39 +49,43 @@
 <br>
 <br>
 
-<h3>Your Proposition (add a if // click sur Sport or Blabla or Mezcal & Coffee)</h3>
+<h3 class="title-second">Your <i style="color:#FC4482">#UNBORED!</i>  Way Out</h3>
 
-<div>
+
+
+<div class="proposition-form"> 
   <form  (ngSubmit)="sendPropositionForm(myForm)" #myForm="ngForm">
     
-      <div class="row">
-        <label for="title">Your Activity Proposition!</label>
-        <input placeholder="Your Activity Proposition!" id="title" [(ngModel)]="title" name="title" type="text">
-    </div>
+      <mat-form-field class="field-width">
+        
+        <input class="input-size" matInput placeholder="Your #UNBORED! Activity Proposition" id="title" [(ngModel)]="title" name="title" type="text">
+      </mat-form-field>
+      <br>
 
-    <div class="row">
-        <label for="startTimeDate">When you'd like to make it happen ?</label>
-        <input placeholder="When you'd like to make it happen ?" id="startTimeDate" [(ngModel)]="startTimeDate" name="startTimeDate" type="date">
-    </div>
-
-    <div class="row">
-        <label for="startTimeHour">At which hour it starts ?</label>
-        <input placeholder="At which hour it starts ?" id="startTimeHour" [(ngModel)]="startTimeHour" name="startTimeHour" type="time"> 
-    </div>
+    <mat-form-field class="field-width">
+        
+        <input matInput  class="input-size"  placeholder="When you'd like to make it happen ?" id="startTimeDate" [(ngModel)]="startTimeDate" name="startTimeDate" type="date">
+      </mat-form-field>
+<br>
+    <mat-form-field class="field-width">
+        
+        <input class="input-size" matInput placeholder="At which hour it starts ?" id="startTimeHour" [(ngModel)]="startTimeHour" name="startTimeHour" type="time"> 
+      </mat-form-field>
     <!-- <span>Date: {{ today | date:'shortTime' }} </span> -->
-    
-    <div class="row">
-        <label for="location">Where do you want to realize your activity?</label>
-        <input placeholder="Where do you want to realize your activity?" id="location" [(ngModel)]="location" name="location" type="text"> 
-    </div>
-
+    <br>
+    <mat-form-field class="field-width">
+       
+        <input class="input-size" matInput placeholder="Where do you want to realize your activity?" id="location" [(ngModel)]="location" name="location" type="text"> 
+      </mat-form-field>
+<br>
     <!-- héhéhé shortcut mini front hack here -->
     <input [(ngModel)]="userid" name="id" type="hidden">
     
  
-    <button type="submit">
-     Create your #Bored Solution / Way Out!
+    <button class="send-prop-button" color="accent" mat-raised-button type="submit">
+     Launch Your <i>#UNBORED!</i>
     </button>
+    
   </form>
 </div>
 <!-- 

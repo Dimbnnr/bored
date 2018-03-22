@@ -1,36 +1,41 @@
+<button id="nav-menu" mat-button [matMenuTriggerFor]="menu">
 
 
+  Menu
 
-<button id="nav-menu" mat-button [matMenuTriggerFor]="menu">Menu</button>
-<mat-menu #menu="matMenu" [overlapTrigger]="false" >
-  <button mat-menu-item> <mat-icon>dialpad</mat-icon>Item 1</button>
-  <button mat-menu-item>Item 2</button>
+
+</button>
+<mat-menu #menu="matMenu"  [overlapTrigger]="false">
+  <button mat-menu-item [routerLink]="['/dash-board']">
+    <i class="material-icons">dashboard</i> Dashboard</button>
+  <button mat-menu-item *ngIf="user" [routerLink]="['../', user._id, 'private-profile' ]">
+    <i class="material-icons">face</i>
+    <i class="material-icons">create</i> Profile </button>
+  <button mat-menu-item [routerLink]="['/main-page']">
+    <i class="material-icons" >map</i> #Bored Super Map</button>
+  <button [routerLink]="['/signup']" mat-menu-item *ngIf="!user">
+    <i class="material-icons" >tag_faces</i> Sign up</button>
+  <button mat-menu-item *ngIf="!user" [routerLink]="['/login']">
+    <i class="material-icons">vpn_key</i>  Login</button>
+
+  <ng-template matMenuContent >
+
+  <button *ngIf="user" mat-menu-item (click)="logout()">
+    <i class="material-icons">flight_takeoff</i> Log off <strong>{{user.username}}</strong> </button>
+  </ng-template>
+{{error}}
 </mat-menu>
+
+
+<!-- <input [(ngModel)]="userid" name="id" type="hidden">
+<input  type="hidden"> -->
+
 <!-- 
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
-    <span>Redial</span>
-  </button>
-  <button mat-menu-item disabled>
-    <mat-icon>voicemail</mat-icon>
-    <span>Check voicemail</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon>
-    <span>Disable alerts</span>
-  </button>
-</mat-menu> -->
 
-<p>
-  nav-bar works! chet
-  <mat-icon>dialpad</mat-icon>
-</p>
+  <p  *ngFor="let prop of propositionList">
 
-<p *ngIf="user">
-  Si hay usuario
-</p>
-<p *ngIf="!user">
-  no hay ni mergas
-</p>
-
+<span *ngIf="prop.owner === user._id">
+                    
+    <a [routerLink]="[user._id, 'private-profile', prop._id]">Edit Profile</a>
+    
+  </span> -->

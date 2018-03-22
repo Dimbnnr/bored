@@ -25,7 +25,7 @@ import { MapsAPILoader } from '@agm/core';
 export class MainPageComponent implements OnInit {
   user;
   userid = '';
-  titl: String = 'DA Bored Int. Network';
+  titl: String = '#Bored Map';
   usersList: Array<Object>;
   propositionList: Array<Object>;
   proposition;

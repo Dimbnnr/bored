@@ -14,7 +14,7 @@ const passport       = require("passport");
 const index = require('./routes/index');
 const authUsers = require('./routes/users');
 const proposition = require('./routes/propositions');
-
+const review = require('./routes/review');
 
 
 const app = express();
@@ -64,6 +64,7 @@ require("./configuration/passport")(passport,app);
 app.use('/', index);
 app.use('/api/auth', authUsers);
 app.use('/api/proposition', proposition);
+app.use('/api/review', review);
 // para hacer deploy en Heroku 
 app.all('/*', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
