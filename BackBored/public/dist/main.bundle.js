@@ -901,6 +901,7 @@ module.exports = "<app-nav-bar></app-nav-bar>\n\n\n\n<section *ngIf=\"user\">\n\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_file_upload__ = __webpack_require__("./node_modules/ng2-file-upload/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_file_upload__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_user_proposition_service__ = __webpack_require__("./src/app/services/user-proposition.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -910,6 +911,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -944,7 +946,8 @@ var PrivateProfileComponent = /** @class */ (function () {
         this.AuthService.sendloggedin()
             .subscribe(function (user) {
             _this.user = user;
-            _this.uploader.options.url = "http://localhost:3000/api/auth/" + _this.user._id + "/addimg";
+            _this.uploader.options.url = __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].base_URL + ("/api/auth/" + _this.user._id + "/addimg");
+            // `http://localhost:3000/api/auth/${this.user._id}/addimg`;
         });
         this.getDaPropositionById();
     };

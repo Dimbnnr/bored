@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { } from 'googlemaps';
 import { FileUploader } from 'ng2-file-upload';
 import { UserPropositionService } from '../services/user-proposition.service';
+import { environment } from '../../environments/environment';
 
 // Autocomplete methode to check
 // import { MapsAPILoader } from '@agm/core';
@@ -59,7 +60,8 @@ export class PrivateProfileComponent implements OnInit {
     this.AuthService.sendloggedin()
       .subscribe(user => {
         this.user = user;
-        this.uploader.options.url = `http://localhost:3000/api/auth/${this.user._id}/addimg`;
+        this.uploader.options.url = environment.base_URL + `/api/auth/${this.user._id}/addimg`;
+        // `http://localhost:3000/api/auth/${this.user._id}/addimg`;
       });
 
       this.getDaPropositionById();
