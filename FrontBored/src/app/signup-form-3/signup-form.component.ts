@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
-
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-signup-form',
@@ -25,7 +25,7 @@ export class SignupFormComponent implements OnInit {
 
 // por defecto hace una llamada post a nuestro back-end
 uploader: FileUploader = new FileUploader({
-  url: `http://localhost:3000/api/auth/signup`
+  url: environment.base_URL + '/api/auth/signup'
 });
 
 
