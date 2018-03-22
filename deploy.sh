@@ -4,7 +4,7 @@ echo 'Building client...'
 ng build --env=prod --aot=false
 cd ..
 echo "Copy files to public..."
-rm -rf ./server/public
+rm -rf ./BackBored/public
 cp -r ./FrontBored/dist ./BackBored/public
 
 git add .
