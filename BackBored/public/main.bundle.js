@@ -1340,6 +1340,7 @@ module.exports = "<app-nav-bar></app-nav-bar>\n\n<div class=\"signup-form\">\n\n
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_file_upload__ = __webpack_require__("./node_modules/ng2-file-upload/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_file_upload__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__agm_core__ = __webpack_require__("./node_modules/@agm/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1349,6 +1350,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1364,7 +1366,7 @@ var SignupFormComponent = /** @class */ (function () {
         this.coordinates = [];
         // por defecto hace una llamada post a nuestro back-end
         this.uploader = new __WEBPACK_IMPORTED_MODULE_3_ng2_file_upload__["FileUploader"]({
-            url: 'https://bored-project.herokuapp.com' + "/api/auth/signup"
+            url: __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].base_URL + "/api/auth/signup"
         });
     }
     SignupFormComponent.prototype.ngOnInit = function () {
@@ -1385,7 +1387,6 @@ var SignupFormComponent = /** @class */ (function () {
             form.append('averageBoredTimePerWeek', newUser.value.averageBoredTimePerWeek);
             form.append('password', newUser.value.password);
         };
-        console.log(this.uploader);
         console.log('subiendo');
         this.uploader.uploadAll(); // post Call to Url
         this.uploader.onCompleteItem = function () { return _this.router.navigate(['login']); }; // como el subscribe el onCompleteItem

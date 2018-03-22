@@ -25,7 +25,7 @@ export class SignupFormComponent implements OnInit {
 
 // por defecto hace una llamada post a nuestro back-end
 uploader: FileUploader = new FileUploader({
-  url: 'https://bored-project.herokuapp.com' + `/api/auth/signup`
+  url: environment.base_URL + `/api/auth/signup`
 });
 
 
@@ -58,7 +58,7 @@ uploader: FileUploader = new FileUploader({
       form.append('averageBoredTimePerWeek', newUser.value.averageBoredTimePerWeek);
       form.append('password', newUser.value.password);
     };
-    console.log(this.uploader)
+
     console.log('subiendo');
     this.uploader.uploadAll(); // post Call to Url
     this.uploader.onCompleteItem = () => this.router.navigate(['login']); // como el subscribe el onCompleteItem
