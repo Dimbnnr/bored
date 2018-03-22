@@ -76,7 +76,9 @@ export class PrivateProfileComponent implements OnInit {
 
   getDaPropositionById() {
       this.propositionService.getAllPropositions()
-      .subscribe(propos => this.proposi = propos[propos.length - 1]);
+      .subscribe(propos => {
+        this.proposi = propos[propos.length - 1];
+      });
  }
 
    // sent changes

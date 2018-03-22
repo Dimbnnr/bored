@@ -6,6 +6,8 @@
 
 </button>
 <mat-menu #menu="matMenu"  [overlapTrigger]="false">
+    <button mat-menu-item [routerLink]="['/home']">
+      <i class="material-icons">home</i> Home</button>
   <button mat-menu-item [routerLink]="['/dash-board']">
     <i class="material-icons">dashboard</i> Dashboard</button>
   <button mat-menu-item *ngIf="user" [routerLink]="['../', user._id, 'private-profile' ]">

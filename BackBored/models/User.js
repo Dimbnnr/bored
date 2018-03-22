@@ -25,7 +25,8 @@ const userSchema = new Schema({
       type:String,
       enum:["USER", "PREMIUM", "ADMIN"],
       default:"USER"
-  }
+  },
+  propositions: [{type: Schema.Types.ObjectId, ref: 'Proposition'}],
   },
   {
     timestamps:{

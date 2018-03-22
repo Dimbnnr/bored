@@ -31,6 +31,14 @@ exports.getPropositionById = function (req, res, next) {
         .catch(e => res.status(500).send(e))
 }
 
+exports.getUserProposition = function (req, res, next) {
+    Proposition.find({"owner":1 })
+        .then(item => {
+            console.log(item)
+        res.status(200).json(item)}) 
+        .catch(e => res.status(500).send(e))
+}
+
 
 exports.patchProposition = (req, res, next) => {
     Proposition.findByIdAndUpdate(req.params.id, req.body, {
