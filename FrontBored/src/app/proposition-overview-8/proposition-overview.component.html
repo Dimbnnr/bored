@@ -7,7 +7,7 @@
 <div *ngIf="user">
 
 
-  <h3><img id="photo" [src]="'http://localhost:3000/' + user.image" alt="doesn't work"> {{user.username}} {{user.lastName}} Profile: </h3>
+  <h3><img id="photo" [src]="base_URL + user.image" alt="doesn't work"> {{user.username}} {{user.lastName}} Profile: </h3>
   <ul>
     
     <li class="user-info" ><strong >{{user.age}}</strong> years old</li>

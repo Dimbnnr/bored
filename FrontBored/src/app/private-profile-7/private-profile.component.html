@@ -33,7 +33,7 @@
 
 
           <div>
-              <img [src]="'http://localhost:3000/' + user.image">
+              <img [src]="base_URL + user.image">
             <input  class="profil-pic-input" type="file" name="file" ng2FileSelect [uploader]="uploader" />
             <button mat-raised-button (click)="updatePhoto()">Update Photo</button>
     

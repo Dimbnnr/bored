@@ -15,7 +15,7 @@
  
   <agm-marker *ngFor="let u of usersList" (markerClick)="markerClick(m)"
       
-  [iconUrl]="'http://localhost:3000/' + u.image"
+  [iconUrl]="base_URL + u.image"
   [latitude]="u.location.coordinates[0]" 
   [longitude]="u.location.coordinates[1]">
 
