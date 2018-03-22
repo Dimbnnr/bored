@@ -4,11 +4,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
 
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class UserPropositionService {
 
-BASE_URL = 'http://localhost:3000/api/proposition';
+BASE_URL = environment.base_URL + '/api/proposition';
 
   constructor(private http: Http) { }
 

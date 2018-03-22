@@ -32,7 +32,7 @@ exports.getPropositionById = function (req, res, next) {
 }
 
 exports.getUserProposition = function (req, res, next) {
-    Proposition.find({"owner":1 })
+    Proposition.find({"owner": req.user._id })
         .then(item => {
             console.log(item)
         res.status(200).json(item)}) 

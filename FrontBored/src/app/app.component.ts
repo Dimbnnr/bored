@@ -22,9 +22,9 @@ export class AppComponent implements OnInit {
   private propositionService: UserPropositionService) { }
 
   ngOnInit() {
-    this.session.sendloggedin().subscribe( user => this.success(user));
+    // this.session.sendloggedin().subscribe( user => this.success(user));
 
-    this.getDaPropositions();
+    // this.getDaPropositions();
   }
 
 
