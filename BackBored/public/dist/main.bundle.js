@@ -1385,6 +1385,7 @@ var SignupFormComponent = /** @class */ (function () {
             form.append('averageBoredTimePerWeek', newUser.value.averageBoredTimePerWeek);
             form.append('password', newUser.value.password);
         };
+        console.log(this.uploader);
         console.log('subiendo');
         this.uploader.uploadAll(); // post Call to Url
         this.uploader.onCompleteItem = function () { return _this.router.navigate(['login']); }; // como el subscribe el onCompleteItem
