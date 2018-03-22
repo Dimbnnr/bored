@@ -1363,7 +1363,7 @@ var SignupFormComponent = /** @class */ (function () {
         this.coordinates = [];
         // por defecto hace una llamada post a nuestro back-end
         this.uploader = new __WEBPACK_IMPORTED_MODULE_3_ng2_file_upload__["FileUploader"]({
-            url: __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].base_URL + '/api/auth/signup'
+            url: __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].base_URL + "/api/auth/signup"
         });
     }
     SignupFormComponent.prototype.ngOnInit = function () {

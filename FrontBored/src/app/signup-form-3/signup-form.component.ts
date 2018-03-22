@@ -25,7 +25,7 @@ export class SignupFormComponent implements OnInit {
 
 // por defecto hace una llamada post a nuestro back-end
 uploader: FileUploader = new FileUploader({
-  url: environment.base_URL + '/api/auth/signup'
+  url: environment.base_URL + `/api/auth/signup`
 });
 
 
