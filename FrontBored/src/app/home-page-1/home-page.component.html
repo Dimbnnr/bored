@@ -19,7 +19,7 @@ Creating new connections without ambuigity
 <br>
 <br>
 <br>
-<button  class ='spin-test2' mat-raised-button color="primary" type="submit">Get Connected !</button>
+<button  class ='spin-test2' mat-raised-button color="primary" type="submit" (click)="submit()">Get Connected !</button>
 
 
 <br>
@@ -29,6 +29,6 @@ Creating new connections without ambuigity
 
 
 <div class="toCenter">
-  <mat-progress-spinner [mode]="isDeterminate ? 'determinate' : 'indeterminate'"
+  <mat-progress-spinner *ngIf="wait" [mode]="isDeterminate ? 'determinate' : 'indeterminate'"
       [value]="progressValue" color="warn" [strokeWidth]="8" [diameter]="216"></mat-progress-spinner>
   </div>

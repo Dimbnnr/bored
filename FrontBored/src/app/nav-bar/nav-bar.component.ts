@@ -35,7 +35,7 @@ export class NavBarComponent implements OnInit {
       this.user = JSON.parse(localStorage.getItem('user'));
     }
 
-    
+
   }
 
   logout() {

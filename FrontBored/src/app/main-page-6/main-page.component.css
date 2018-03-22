@@ -38,6 +38,8 @@ border: solid 8px #A9EEE6 !important;
 .proposition-form{
 text-align: center;
 padding-bottom: 2.5vh;
+margin-left: 5%;
+margin-right: 5%;
 }
 
 .mat-input-flex{

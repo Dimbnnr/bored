@@ -14,7 +14,8 @@ import { UserPropositionService } from '../services/user-proposition.service';
   styleUrls: ['./private-profile.component.css']
 })
 export class PrivateProfileComponent implements OnInit {
-
+  showEditAll: Boolean = false;
+  showEditProposition: Boolean = true;
   showEditUsername: Boolean = false;
   showEditLastName: Boolean = false;
   showEditAge: Boolean = false;
@@ -24,6 +25,9 @@ export class PrivateProfileComponent implements OnInit {
   showEditCitation: Boolean = false;
   showEditAverageBoredTimePerWeek: Boolean = false;
   showEditTitle: Boolean = false;
+  showEditLocation: Boolean = false;
+  showEditHour: Boolean = false;
+  showEditDate: Boolean = false;
   // showEditPhone: Boolean = false;
   // showEditAdress: Boolean = false;
 
@@ -62,6 +66,14 @@ export class PrivateProfileComponent implements OnInit {
 
   }
 
+  changeShow() {
+    this.showEditAll = true;
+  }
+
+  changeProposition() {
+    this.showEditProposition = true;
+  }
+
   getDaPropositionById() {
       this.propositionService.getAllPropositions()
       .subscribe(propos => this.proposi = propos[propos.length - 1]);
@@ -81,6 +93,7 @@ export class PrivateProfileComponent implements OnInit {
     this.showEditCitation = false;
     this.showEditAverageBoredTimePerWeek = false;
     this.showEditEmail = false;
+    this.showEditAll = false;
   }
 
 
@@ -90,6 +103,10 @@ export class PrivateProfileComponent implements OnInit {
      this.proposi = prop;
    });
    this.showEditTitle = false;
+   this.showEditLocation = false;
+   this.showEditHour = false;
+   this.showEditDate = false;
+   this.showEditProposition = false;
  }
 
   updatePhoto() {

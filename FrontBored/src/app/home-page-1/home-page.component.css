@@ -1,6 +1,8 @@
 .main{
+    width: 100%;
+    height: 100%;
+    background-color:#FFFCEF;
     text-align: center;
-    margin: 0;
 }
 
 h1{
@@ -20,7 +22,8 @@ p{
     display: block;
       
       position: absolute;
-      top: 41vh;
-      right: 30vw;
+      top: 50%;
+      right: 22%;
     
 }
+

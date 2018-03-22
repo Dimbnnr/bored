@@ -3,11 +3,12 @@
 
 
 
-.first-draw-profile-pic{
+
+/* .first-draw-profile-pic{
     position: absolute;
-    right: 30%;
+    right: 51%;
     top: 1%;
-}
+} */
 
 .first-draw-profile-credentials{
     position: absolute;
@@ -19,14 +20,16 @@
 
 .profile-content{
 padding-left: 5%;
+margin-left: 3%;
 }
 
 
-.profile-title{
+/* .profile-title{
     font-weight: 500;
     font-size: 1.4em;
     padding-left: 5%;
-}
+    margin-left: 3%;
+} */
 
 .profile-subtitle{
     font-weight: 500;
@@ -34,7 +37,7 @@ padding-left: 5%;
 }
 
 .profile-output{
-    color: #F38181;
+    color: #11CBD7;
     font-weight: 400;
 }
 
@@ -46,9 +49,19 @@ padding-left: 5%;
 
 .delete-button{
     text-align: center;
-    padding: 15px 0 15px 0
+    padding: 15px 0 15px 0;
+    margin-bottom: 15px;
 }
 
 .profil-pic-input{
     padding-bottom: 15px;
+}
+
+.edit-proposition-section{
+margin-left: 8%;
+}
+
+.proposition-output{
+    color: #04DEAD;
+    font-weight: 400;
 }

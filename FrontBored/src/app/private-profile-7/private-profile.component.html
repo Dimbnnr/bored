@@ -10,9 +10,9 @@
 
 
         <div  *ngIf="!showEditUsername">
-          <img class="first-draw-profile-pic" [src]="'http://localhost:3000/' + user.image"> 
+          <!-- <img class="first-draw-profile-pic" [src]="'http://localhost:3000/' + user.image">  -->
           
-          <p class="first-draw-profile-credentials" >{{user.username}} {{user.lastName}}</p>
+          <!-- <p class="first-draw-profile-credentials" >{{user.username}} {{user.lastName}}</p> -->
           
           
         </div>
@@ -21,16 +21,33 @@
     <!-- profile info -->
 
    
-      <h5 class="profile-title">Profile :</h5>
+      <h5 class="profile-title"> </h5>
 
       <div class="profile-content">
+
+          <button class="edit-profile" style="position: absolute;
+          top: 2%;
+          right: 6%;
+          min-width: 33%;" mat-raised-button color="primary" class="edit" (click)="changeShow()">Edit Profile</button>
+
+
+
+          <div>
+              <img [src]="'http://localhost:3000/' + user.image">
+            <input  class="profil-pic-input" type="file" name="file" ng2FileSelect [uploader]="uploader" />
+            <button mat-raised-button (click)="updatePhoto()">Update Photo</button>
+    
+          </div>
+
       <!-- userName -->
-      <div *ngIf="!showEditUsername">
+      <div *ngIf="!showEditAll">
+      
+        <br>
         <p class="profile-subtitle" >Username: <span class="profile-output">{{user.username}}</span>
-          <button mat-raised-button class="edit" (click)="showEditUsername=true">edit</button>
+          <!-- <button mat-raised-button class="edit" (click)="showEditAll=true">edit</button> -->
         </p>
       </div>
-      <div *ngIf="showEditUsername">
+      <div *ngIf="showEditAll">
           <mat-form-field>
         <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.username">
       </mat-form-field>
@@ -38,24 +55,24 @@
       
       
       <!-- Last name -->
-      <div *ngIf="!showEditLastName">
+      <div *ngIf="!showEditAll">
         <p class="profile-subtitle">Last Name: <span class="profile-output">{{user.lastName}}</span>
-          <button mat-raised-button class="edit" (click)="showEditLastName=true">edit</button>
+          <!-- <button mat-raised-button class="edit" (click)="showEditAll=true">edit</button> -->
         </p>
       </div>
-      <div *ngIf="showEditLastName">
+      <div *ngIf="showEditAll">
           <mat-form-field>
         <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.lastName">
       </mat-form-field>
       </div>
 
       <!-- Age -->
-      <div *ngIf="!showEditAge">
+      <div *ngIf="!showEditAll">
         <p class="profile-subtitle">Age: <span class="profile-output">{{user.age}}</span> years old!
-          <button mat-raised-button class="edit" (click)="showEditAge=true">edit</button>
+          <!-- <button mat-raised-button class="edit" (click)="showEditAll=true">edit</button> -->
         </p>
       </div>
-      <div *ngIf="showEditAge">
+      <div *ngIf="showEditAll">
           <mat-form-field>
         <input matInput (keydown.enter)="sendModification()" type="number" [(ngModel)]="user.age">
       </mat-form-field>
@@ -63,12 +80,12 @@
 
       <!-- phoneNumber -->
 
-      <div *ngIf="!showEditphoneNumber">
+      <div *ngIf="!showEditAll">
           <p class="profile-subtitle">Your Phone Number: <span class="profile-output">{{user.phoneNumber}} </span>
-            <button mat-raised-button class="edit" (click)="showEditphoneNumber=true">edit</button>
+            <!-- <button mat-raised-button class="edit" (click)="showEditAll=true">edit</button> -->
           </p>
         </div>
-        <div *ngIf="showEditphoneNumber">
+        <div *ngIf="showEditAll">
             <mat-form-field>
           <input matInput (keydown.enter)="sendModification()" type="number" [(ngModel)]="user.phoneNumber">
         </mat-form-field>
@@ -76,85 +93,128 @@
 
 
       <!-- email -->
-      <div *ngIf="!showEditEmail">
+      <div *ngIf="!showEditAll">
         <p class="profile-subtitle">Email: <span class="profile-output">{{user.email}}</span>
-          <button mat-raised-button class="edit" (click)="showEditEmail=true">edit</button>
+          <!-- <button mat-raised-button class="edit" (click)="showEditAll=true">edit</button> -->
         </p>
       </div>
-      <div *ngIf="showEditEmail">
+      <div *ngIf="showEditAll">
           <mat-form-field>
         <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.email">
       </mat-form-field>
       </div>
 
          <!-- Belief -->
-         <div *ngIf="!showEditBelief">
+         <div *ngIf="!showEditAll">
             <p class="profile-subtitle">Your Belief:  <span class="profile-output"> <b> {{user.belief}}</b></span>
-              <button mat-raised-button class="edit" (click)="showEditBelief=true">edit</button>
+              <!-- <button mat-raised-button class="edit" (click)="showEditAll=true">edit</button> -->
             </p>
           </div>
-          <div *ngIf="showEditBelief">
+          <div *ngIf="showEditAll">
               <mat-form-field>
             <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.belief">
           </mat-form-field>
           </div>
 
            <!-- Citation -->
-         <div *ngIf="!showEditCitation">
+         <div *ngIf="!showEditAll">
             <p class="profile-subtitle">One of your favourite citation: <i> <span class="profile-output">{{user.citation}}</span></i>
-              <button mat-raised-button class="edit" (click)="showEditCitation=true">edit</button>
+              <!-- <button mat-raised-button class="edit" (click)="showEditAll=true">edit</button> -->
             </p>
           </div>
-          <div *ngIf="showEditCitation">
+          <div *ngIf="showEditAll">
               <mat-form-field>
             <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.citation">
           </mat-form-field>
           </div>
 
       <!-- AverageBoredTimePerWeek -->
-      <div *ngIf="!showEditAverageBoredTimePerWeek">
+      <div *ngIf="!showEditAll">
         <p class="profile-subtitle">#Bored moments per week: <span class="profile-output">{{user.averageBoredTimePerWeek}} h</span>
-          <button mat-raised-button class="edit" (click)="showEditAverageBoredTimePerWeek=true">edit</button>
+          <!-- <button mat-raised-button class="edit" (click)="showEditAll=true">edit</button> -->
         </p>
       </div>
-      <div *ngIf="showEditAverageBoredTimePerWeek">
+      <div *ngIf="showEditAll">
           <mat-form-field>
         <input matInput (keydown.enter)="sendModification()" type="number" [(ngModel)]="user.averageBoredTimePerWeek">
       </mat-form-field>
+      <br>
       </div>
 
       <!-- image -->
-      <div>
-          <img [src]="'http://localhost:3000/' + user.image">
-        <input  class="profil-pic-input" type="file" name="file" ng2FileSelect [uploader]="uploader" />
-        <button mat-raised-button (click)="updatePhoto()">Update Photo</button>
+     
 
-      </div>
-
-      <div class="delete-button">
-      <button  mat-raised-button color="warn" (click)="deleteProfile()">Delete my profile</button>
-    </div>
 
    
   </div>
 </section>
 
+<button class="edit-proposition" style="margin-left: 28px;" mat-raised-button color="primary" class="edit" (click)="changeProposition()">Edit Proposition</button>
 
-<section *ngIf="proposi">
+<br>
 
-  <p >{{proposi.title}}</p>
+<section class="edit-proposition-section" *ngIf="proposi">
+
+
 
   <!-- title -->
+  
   <div *ngIf="!showEditTitle">
-      <p>Proposition: {{proposi.title}}
-        <button mat-raised-button class="edit" (click)="showEditTitle=true">edit</button>
+      <p class="profile-subtitle"> <strong>Proposition Title: </strong>  <span class="proposition-output">{{proposi.title}}</span> 
+        <!-- <button mat-raised-button class="edit" (click)="showEditTitle=true">edit</button> -->
       </p>
     </div>
+
     <div *ngIf="showEditTitle">
         <mat-form-field>
       <input matInput(keydown.enter)="sendProposiModification()" type="text" [(ngModel)]="proposi.title">
     </mat-form-field>
     </div>
 
+    <div *ngIf="!showEditLocation">
+        <p class="profile-subtitle"> <strong>Location: </strong> <span class="proposition-output">{{proposi.location}}</span> 
+          <!-- <button mat-raised-button class="edit" (click)="showEditLocation=true">edit</button> -->
+        </p>
+      </div>
+  
+      <div *ngIf="showEditLocation">
+          <mat-form-field>
+        <input matInput(keydown.enter)="sendProposiModification()" type="text" [(ngModel)]="proposi.location">
+      </mat-form-field>
+      </div>
+
+      <div *ngIf="!showEditHour">
+          <p class="profile-subtitle"> <strong>Set Hour: </strong> <span class="proposition-output">{{proposi.startTimeHour}}</span>
+            <!-- <button mat-raised-button class="edit" (click)="showEditHour=true">edit</button> -->
+          </p>
+        </div>
+    
+        <div *ngIf="showEditHour">
+            <mat-form-field>
+          <input matInput(keydown.enter)="sendProposiModification()" type="text" [(ngModel)]="proposi.startTimeHour">
+        </mat-form-field>
+        </div>
+
+
+
+        <div *ngIf="!showEditDate">
+            <p class="profile-subtitle"> <strong>Set Date: </strong> <span class="proposition-output">{{proposi.startTimeDate | date: 'fullDate'}}</span>
+              <!-- <button mat-raised-button class="edit" (click)="showEditDate=true">edit</button> -->
+            </p>
+          </div>
+      
+          <div *ngIf="showEditDate">
+              <mat-form-field>
+            <input matInput(keydown.enter)="sendProposiModification()" type="text" [(ngModel)]="proposi.startTimeDate">
+          </mat-form-field>
+          </div>
+  
 
 </section>
+
+
+
+
+<div class="delete-button">
+    <button  mat-raised-button color="warn" (click)="deleteProfile()">Delete my profile</button>
+  </div>

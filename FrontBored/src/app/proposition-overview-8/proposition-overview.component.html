@@ -1,8 +1,8 @@
-<div class="prop-overview"> 
 <app-nav-bar></app-nav-bar>
+<div class="prop-overview"> 
 
-<br>
-<br>
+
+
 
 <div *ngIf="user">
 
@@ -10,26 +10,26 @@
   <h3><img id="photo" [src]="'http://localhost:3000/' + user.image" alt="doesn't work"> {{user.username}} {{user.lastName}} Profile: </h3>
   <ul>
     
-    <li><strong>{{user.age}}</strong> years old</li>
-    <li><strong>Her belief: </strong>{{user.belief}}</li>
-    <li><strong>Citation: </strong>{{user.citation}}</li>
-    <li> <strong>{{user.username}}' mail:</strong> {{user.email}}  </li>
-    <li><strong>{{user.username}}' PhoneNumber:</strong> {{user.phoneNumber}}</li>
+    <li class="user-info" ><strong >{{user.age}}</strong> years old</li>
+    <li class="user-info"><strong >Her belief: </strong>{{user.belief}}</li>
+    <li class="user-info"><strong >Citation: </strong>{{user.citation}}</li>
+    <li class="user-info"> <strong >{{user.username}}' mail:</strong> {{user.email}}  </li>
+    <li class="user-info"><strong >{{user.username}}' PhoneNumber:</strong> {{user.phoneNumber}}</li>
     <!-- <li>{{user.image}}</li> -->
   </ul>
 
-_____________
+<hr style="width:80%;line-height: 2; ">
 
 <h2>{{user.username}}' <i> #UNBORED </i>Way Out:</h2>
 </div>
 
 <div *ngIf="proposi">
-<h3> Proposition: <u>{{proposi.title}}</u></h3>
+<h3> Proposition: <span class="proposi-title">{{proposi.title}}</span></h3>
 <ul>
-  <li>  <strong>What Time ?</strong> {{proposi.startTimeHour}}</li>
-  <li> <strong>When ?</strong>  {{proposi.startTimeDate | date: 'fullDate'}}</li>
+  <li>  <strong>What Time ?</strong> <span class="proposi-info"> {{proposi.startTimeHour}}</span></li>
+  <li> <strong>When ?</strong> <span class="proposi-info"> {{proposi.startTimeDate | date: 'fullDate'}}</span> </li>
   <!-- <li>{{proposi.endTimeHour}}</li> -->
-  <li> <strong>Where ?</strong>   {{proposi.location}} + Add Participant / endTimeHour</li>
+  <li> <strong>Where ?</strong>  <span class="proposi-info"> {{proposi.location}}</span> </li>
   
 </ul>
 
@@ -46,10 +46,10 @@ _____________
   <img id="photo" [src]="single.image">
 
 </div> -->
-
+<div class="da-chat"> 
 <app-chat [theUserId]="user._id" ></app-chat>
 </div>
 
-
+</div>
 
 </div>
