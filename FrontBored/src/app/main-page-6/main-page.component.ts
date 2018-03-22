@@ -14,6 +14,7 @@ import { ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
+import { environment } from '../../environments/environment.prod';
 
 
 @Component({
@@ -23,6 +24,7 @@ import { MapsAPILoader } from '@agm/core';
 })
 
 export class MainPageComponent implements OnInit {
+  base_URL = environment.base_URL;
   user;
   userid = '';
   titl: String = '#Bored Map';

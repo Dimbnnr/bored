@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserAuthService } from '../services/user-auth.service';
 import { UserPropositionService } from '../services/user-proposition.service';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-proposition-overview',
@@ -10,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PropositionOverviewComponent implements OnInit {
 user;
+base_URL = environment.base_URL;
 proposi;
 propositionList;
   constructor(

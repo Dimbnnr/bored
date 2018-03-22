@@ -606,7 +606,7 @@ module.exports = "agm-map {\n    height: 700px;\n    width: 500px;\n    \n  }\n\
 /***/ "./src/app/main-page-6/main-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-bar></app-nav-bar>\n\n\n<h1 class=\"main-title\">{{ titl }}</h1>\n\n<!-- this creates a google map on the page with the given lat/lng from -->\n<!-- the component as the initial center of the map: -->\n\n\n\n\n<agm-map class=\"sticky-map\" *ngIf=\"usersList\" [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\n\n<agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n \n  <agm-marker *ngFor=\"let u of usersList\" (markerClick)=\"markerClick(m)\"\n      \n  [iconUrl]=\"'http://localhost:3000/' + u.image\"\n  [latitude]=\"u.location.coordinates[0]\" \n  [longitude]=\"u.location.coordinates[1]\">\n\n  <agm-info-window >\n    {{u.username}} {{u.lastName}} \n    <br> \n    {{u.age}} years old\n    <p  *ngFor=\"let prop of propositionList\">\n    <span *ngIf=\"prop.owner === u._id\">\n        {{prop.title}}\n    </span>\n\n   <br>\n    <a *ngIf=\"prop.owner === u._id\" [routerLink]=\"['../user', u._id, 'proposition-overview' , prop._id]\" >Let's see:</a>\n   </p>\n   \n\n\n    \n   \n    \n  </agm-info-window>\n\n</agm-marker>\n\n\n<!-- [label]=\"u.username\" -->\n\n</agm-map>\n\n<br>\n<br>\n\n<h3 class=\"title-second\">Your <i style=\"color:#FC4482\">#UNBORED!</i>  Way Out</h3>\n\n\n\n<div class=\"proposition-form\"> \n  <form  (ngSubmit)=\"sendPropositionForm(myForm)\" #myForm=\"ngForm\">\n    \n      <mat-form-field class=\"field-width\">\n        \n        <input class=\"input-size\" matInput placeholder=\"Your #UNBORED! Activity Proposition\" id=\"title\" [(ngModel)]=\"title\" name=\"title\" type=\"text\">\n      </mat-form-field>\n      <br>\n\n    <mat-form-field class=\"field-width\">\n        \n        <input matInput  class=\"input-size\"  placeholder=\"When you'd like to make it happen ?\" id=\"startTimeDate\" [(ngModel)]=\"startTimeDate\" name=\"startTimeDate\" type=\"date\">\n      </mat-form-field>\n<br>\n    <mat-form-field class=\"field-width\">\n        \n        <input class=\"input-size\" matInput placeholder=\"At which hour it starts ?\" id=\"startTimeHour\" [(ngModel)]=\"startTimeHour\" name=\"startTimeHour\" type=\"time\"> \n      </mat-form-field>\n    <!-- <span>Date: {{ today | date:'shortTime' }} </span> -->\n    <br>\n    <mat-form-field class=\"field-width\">\n       \n        <input class=\"input-size\" matInput placeholder=\"Where do you want to realize your activity?\" id=\"location\" [(ngModel)]=\"location\" name=\"location\" type=\"text\"> \n      </mat-form-field>\n<br>\n    <!-- héhéhé shortcut mini front hack here -->\n    <input [(ngModel)]=\"userid\" name=\"id\" type=\"hidden\">\n    \n \n    <button class=\"send-prop-button\" color=\"accent\" mat-raised-button type=\"submit\">\n     Launch Your <i>#UNBORED!</i>\n    </button>\n    \n  </form>\n</div>\n<!-- \n<div *ngFor = \"let user of UsersList\">\n  <h3>{{user.username}} {{user.lastName}}</h3> \n  <ul>\n    <li>{{user.age}}</li>\n    <li>{{user.averageBoredTimePerWeek}}</li>\n  </ul>     \n\n<img [src]=\"'http://localhost:3000/' + user.image\">\n</div> -->\n\n\n"
+module.exports = "<app-nav-bar></app-nav-bar>\n\n\n<h1 class=\"main-title\">{{ titl }}</h1>\n\n<!-- this creates a google map on the page with the given lat/lng from -->\n<!-- the component as the initial center of the map: -->\n\n\n\n\n<agm-map class=\"sticky-map\" *ngIf=\"usersList\" [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\n\n<agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n \n  <agm-marker *ngFor=\"let u of usersList\" (markerClick)=\"markerClick(m)\"\n      \n  [iconUrl]=\"'http://localhost:3000/' + u.image\"\n  [latitude]=\"u.location.coordinates[0]\" \n  [longitude]=\"u.location.coordinates[1]\">\n\n  <agm-info-window >\n    {{u.username}} {{u.lastName}} \n    <br> \n    {{u.age}} years old\n    <p  *ngFor=\"let prop of propositionList\">\n    <span *ngIf=\"prop.owner === u._id\">\n        {{prop.title}}\n    </span>\n\n   <br>\n    <a *ngIf=\"prop.owner === u._id\" [routerLink]=\"['../user', u._id, 'proposition-overview' , prop._id]\" >Let's see:</a>\n   </p>\n   \n\n   <!-- 'http://localhost:3000/' -->\n    \n   \n    \n  </agm-info-window>\n\n</agm-marker>\n\n\n<!-- [label]=\"u.username\" -->\n\n</agm-map>\n\n<br>\n<br>\n\n<h3 class=\"title-second\">Your <i style=\"color:#FC4482\">#UNBORED!</i>  Way Out</h3>\n\n\n\n<div class=\"proposition-form\"> \n  <form  (ngSubmit)=\"sendPropositionForm(myForm)\" #myForm=\"ngForm\">\n    \n      <mat-form-field class=\"field-width\">\n        \n        <input class=\"input-size\" matInput placeholder=\"Your #UNBORED! Activity Proposition\" id=\"title\" [(ngModel)]=\"title\" name=\"title\" type=\"text\">\n      </mat-form-field>\n      <br>\n\n    <mat-form-field class=\"field-width\">\n        \n        <input matInput  class=\"input-size\"  placeholder=\"When you'd like to make it happen ?\" id=\"startTimeDate\" [(ngModel)]=\"startTimeDate\" name=\"startTimeDate\" type=\"date\">\n      </mat-form-field>\n<br>\n    <mat-form-field class=\"field-width\">\n        \n        <input class=\"input-size\" matInput placeholder=\"At which hour it starts ?\" id=\"startTimeHour\" [(ngModel)]=\"startTimeHour\" name=\"startTimeHour\" type=\"time\"> \n      </mat-form-field>\n    <!-- <span>Date: {{ today | date:'shortTime' }} </span> -->\n    <br>\n    <mat-form-field class=\"field-width\">\n       \n        <input class=\"input-size\" matInput placeholder=\"Where do you want to realize your activity?\" id=\"location\" [(ngModel)]=\"location\" name=\"location\" type=\"text\"> \n      </mat-form-field>\n<br>\n    <!-- héhéhé shortcut mini front hack here -->\n    <input [(ngModel)]=\"userid\" name=\"id\" type=\"hidden\">\n    \n \n    <button class=\"send-prop-button\" color=\"accent\" mat-raised-button type=\"submit\">\n     Launch Your <i>#UNBORED!</i>\n    </button>\n    \n  </form>\n</div>\n<!-- \n<div *ngFor = \"let user of UsersList\">\n  <h3>{{user.username}} {{user.lastName}}</h3> \n  <ul>\n    <li>{{user.age}}</li>\n    <li>{{user.averageBoredTimePerWeek}}</li>\n  </ul>     \n\n<img [src]=\"'http://localhost:3000/' + user.image\">\n</div> -->\n\n\n"
 
 /***/ }),
 
@@ -620,6 +620,7 @@ module.exports = "<app-nav-bar></app-nav-bar>\n\n\n<h1 class=\"main-title\">{{ t
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_proposition_service__ = __webpack_require__("./src/app/services/user-proposition.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__agm_core__ = __webpack_require__("./node_modules/@agm/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment_prod__ = __webpack_require__("./src/environments/environment.prod.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -640,6 +641,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // import { ViewChild, ElementRef, NgZone } from '@angular/core';
 
 
+
 var MainPageComponent = /** @class */ (function () {
     function MainPageComponent(service, router, mapsAPILoader, ngZone, propositionService) {
         var _this = this;
@@ -648,6 +650,7 @@ var MainPageComponent = /** @class */ (function () {
         this.mapsAPILoader = mapsAPILoader;
         this.ngZone = ngZone;
         this.propositionService = propositionService;
+        this.base_URL = __WEBPACK_IMPORTED_MODULE_5__environments_environment_prod__["a" /* environment */].base_URL;
         this.userid = '';
         this.titl = '#Bored Map';
         this.today = Date.now();
@@ -1051,6 +1054,7 @@ module.exports = "<app-nav-bar></app-nav-bar>\n<div class=\"prop-overview\"> \n\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_auth_service__ = __webpack_require__("./src/app/services/user-auth.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_proposition_service__ = __webpack_require__("./src/app/services/user-proposition.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1064,11 +1068,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PropositionOverviewComponent = /** @class */ (function () {
     function PropositionOverviewComponent(AuthService, propositionService, activateRouter) {
         this.AuthService = AuthService;
         this.propositionService = propositionService;
         this.activateRouter = activateRouter;
+        this.base_URL = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].base_URL;
     }
     PropositionOverviewComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1439,6 +1445,19 @@ var SignupFormComponent = /** @class */ (function () {
     return SignupFormComponent;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/environments/environment.prod.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+var environment = {
+    production: true,
+    base_URL: ''
+};
 
 
 /***/ }),

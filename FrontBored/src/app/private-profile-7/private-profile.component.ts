@@ -32,6 +32,8 @@ export class PrivateProfileComponent implements OnInit {
   // showEditPhone: Boolean = false;
   // showEditAdress: Boolean = false;
 
+  // base_URL = environment.base_URL;
+
   user;
   proposi;
   latitude: number;
