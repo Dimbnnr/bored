@@ -1,6 +1,7 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="background">
+  <br>
 <h1 class="main-title">{{ titl }}</h1>
 
 <!-- this creates a google map on the page with the given lat/lng from -->
@@ -25,15 +26,15 @@
   <agm-info-window >
      <strong>  {{u.username}} {{u.lastName}}  </strong> 
     <br> 
-    {{u.age}} years old !!
+    {{u.age}} years old 
     <p  *ngFor="let prop of propositionList">
     <span *ngIf="prop.owner === u._id">
       <b> {{prop.title}}</b> 
     </span>
 
-   <span class="agm-info-window-link"> 
-    <a *ngIf="prop.owner === u._id" [routerLink]="['../user', u._id, 'proposition-overview' , prop._id]" >Let's see:</a>
-  </span>
+   
+    <a [routerLink]="['../user', u._id, 'proposition-overview' , prop._id]" ><span class="agm-da-link"> Let's see:  </span></a>
+
    </p>
       <!-- 'http://localhost:3000/' -->
 
