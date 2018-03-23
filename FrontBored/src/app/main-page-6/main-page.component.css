@@ -53,3 +53,11 @@ margin-right: 5%;
 .field-width{
     width: 25em;
 }
+
+.agm-info-window-link{
+    font-weight: 500;
+    color: #11CBD7;
+}
+.background{
+background-color: #FFFCEF;
+}
