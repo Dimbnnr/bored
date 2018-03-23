@@ -49,7 +49,7 @@
       </div>
       <div *ngIf="showEditAll">
           <mat-form-field>
-        <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.username">
+        <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.username" placeholder="Your username:">
       </mat-form-field>
       </div>
       
@@ -62,7 +62,7 @@
       </div>
       <div *ngIf="showEditAll">
           <mat-form-field>
-        <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.lastName">
+        <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.lastName" placeholder="Your Last Name:">
       </mat-form-field>
       </div>
 
@@ -74,7 +74,7 @@
       </div>
       <div *ngIf="showEditAll">
           <mat-form-field>
-        <input matInput (keydown.enter)="sendModification()" type="number" [(ngModel)]="user.age">
+        <input matInput (keydown.enter)="sendModification()" type="number" [(ngModel)]="user.age" placeholder="Your age:">
       </mat-form-field>
       </div>
 
@@ -87,7 +87,7 @@
         </div>
         <div *ngIf="showEditAll">
             <mat-form-field>
-          <input matInput (keydown.enter)="sendModification()" type="number" [(ngModel)]="user.phoneNumber">
+          <input matInput (keydown.enter)="sendModification()" type="number" [(ngModel)]="user.phoneNumber" placeholder="Your new Phone Number:">
         </mat-form-field>
         </div>
 
@@ -100,7 +100,7 @@
       </div>
       <div *ngIf="showEditAll">
           <mat-form-field>
-        <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.email">
+        <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.email" placeholder="Your new email:">
       </mat-form-field>
       </div>
 
@@ -112,7 +112,7 @@
           </div>
           <div *ngIf="showEditAll">
               <mat-form-field>
-            <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.belief">
+            <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.belief" placeholder="Your current Belief:">
           </mat-form-field>
           </div>
 
@@ -124,7 +124,7 @@
           </div>
           <div *ngIf="showEditAll">
               <mat-form-field>
-            <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.citation">
+            <input matInput (keydown.enter)="sendModification()" type="text" [(ngModel)]="user.citation" placeholder="Your current favourite quote:">
           </mat-form-field>
           </div>
 
@@ -136,7 +136,7 @@
       </div>
       <div *ngIf="showEditAll">
           <mat-form-field>
-        <input matInput (keydown.enter)="sendModification()" type="number" [(ngModel)]="user.averageBoredTimePerWeek">
+        <input matInput (keydown.enter)="sendModification()" type="number" [(ngModel)]="user.averageBoredTimePerWeek" placeholder="Average bored moments:">
       </mat-form-field>
       <br>
       </div>
