@@ -30,11 +30,11 @@
     <p  *ngFor="let prop of propositionList">
     <span *ngIf="prop.owner === u._id">
       <b> {{prop.title}}</b> 
-    </span>
+    
 
    
     <a class="agm-da-link" [routerLink]="['../user', u._id, 'proposition-overview' , prop._id]" > Let's see: </a>
-
+  </span>
    </p>
       <!-- 'http://localhost:3000/' -->
 
