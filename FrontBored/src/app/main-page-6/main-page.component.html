@@ -31,10 +31,10 @@
     <span *ngIf="prop.owner === u._id">
       <b> {{prop.title}}</b> 
     
-
+    </span>
    
-    <a class="agm-da-link" [routerLink]="['../user', u._id, 'proposition-overview' , prop._id]" > Let's see: </a>
-  </span>
+    <a class="agm-da-link" *ngIf="prop.owner === u._id" [routerLink]="['../user', u._id, 'proposition-overview' , prop._id]" > Let's see: </a>
+
    </p>
       <!-- 'http://localhost:3000/' -->
 
