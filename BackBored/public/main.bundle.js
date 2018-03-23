@@ -269,14 +269,14 @@ var AppModule = /** @class */ (function () {
 /***/ "./src/app/chat-9/chat.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".chat-messages{\ncolor: dodgerblue;\n}\n\n.chat-input{\nwidth: 330px;\n}"
 
 /***/ }),
 
 /***/ "./src/app/chat-9/chat.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p *ngFor=\"let message of elChat\">\n  {{message.user}}\n  <br>\n  {{message.text}} - {{message.date}}\n</p>\n\n\n\n<input #text (keydown.enter)=\"sendMessage(text.value)\" type=\"text\">\n  "
+module.exports = "<p class=\"chat-messages\" *ngFor=\"let message of elChat\">\n  {{message.user}}\n  <br>\n  {{message.text}} - {{message.date}}\n</p>\n\n\n\n<input class=\"chat-input\" #text (keydown.enter)=\"sendMessage(text.value)\" type=\"text\">\n  "
 
 /***/ }),
 
