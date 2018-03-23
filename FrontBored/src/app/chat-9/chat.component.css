@@ -5,3 +5,7 @@ color:gray;
 .chat-input{
 width: 330px;
 }
+
+.chat-background{
+    background-color: #FEFAEC;
+}

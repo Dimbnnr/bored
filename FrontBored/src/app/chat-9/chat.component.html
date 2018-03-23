@@ -1,3 +1,5 @@
+<div class="chat-background"> 
+
 <p class="chat-messages" *ngFor="let message of elChat">
    <b> {{message.user}} </b>
   <br>
@@ -14,3 +16,6 @@
   <textarea matInput placeholder="Write your message here" matTextareaAutosize matAutosizeMinRows="2"
             matAutosizeMaxRows="5" #text (keydown.enter)="sendMessage(text.value)" type="text"></textarea>
 </mat-form-field>
+
+
+</div>
