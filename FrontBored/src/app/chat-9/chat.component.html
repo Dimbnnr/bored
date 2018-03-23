@@ -1,10 +1,16 @@
 <p class="chat-messages" *ngFor="let message of elChat">
-  {{message.user}}
+   <b> {{message.user}} </b>
   <br>
   {{message.text}} - {{message.date}}
 </p>
 
 
 
-<input class="chat-input" #text (keydown.enter)="sendMessage(text.value)" type="text">
+<!-- <input class="chat-input" #text (keydown.enter)="sendMessage(text.value)" type="text"> -->
   
+
+<mat-form-field>
+
+  <textarea matInput placeholder="Write your message here" matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="5" #text (keydown.enter)="sendMessage(text.value)" type="text"></textarea>
+</mat-form-field>
