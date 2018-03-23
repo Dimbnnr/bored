@@ -12,31 +12,30 @@
 <agm-map class="sticky-map" *ngIf="usersList" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
 
 <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
- 
+
+  <!-- Heroku :  [iconUrl]="base_URL + u.image" -->
   <agm-marker *ngFor="let u of usersList" (markerClick)="markerClick(m)"
-      
+  
+  
+ 
   [iconUrl]="base_URL + u.image"
   [latitude]="u.location.coordinates[0]" 
   [longitude]="u.location.coordinates[1]">
 
   <agm-info-window >
-    {{u.username}} {{u.lastName}} 
+     <strong>  {{u.username}} {{u.lastName}}  </strong> 
     <br> 
-    {{u.age}} years old
+    {{u.age}} years old !!
     <p  *ngFor="let prop of propositionList">
     <span *ngIf="prop.owner === u._id">
-        {{prop.title}}
+      <b> {{prop.title}}</b> 
     </span>
 
-   <br>
+   
     <a *ngIf="prop.owner === u._id" [routerLink]="['../user', u._id, 'proposition-overview' , prop._id]" >Let's see:</a>
    </p>
-   
+      <!-- 'http://localhost:3000/' -->
 
-   <!-- 'http://localhost:3000/' -->
-    
-   
-    
   </agm-info-window>
 
 </agm-marker>
