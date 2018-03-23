@@ -1,4 +1,4 @@
-<p *ngFor="let message of elChat">
+<p class="chat-messages" *ngFor="let message of elChat">
   {{message.user}}
   <br>
   {{message.text}} - {{message.date}}
@@ -6,5 +6,5 @@
 
 
 
-<input #text (keydown.enter)="sendMessage(text.value)" type="text">
+<input class="chat-input" #text (keydown.enter)="sendMessage(text.value)" type="text">
   
