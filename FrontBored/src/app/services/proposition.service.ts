@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class UserPropositionService {
+export class PropositionService {
 
 BASE_URL = environment.base_URL + '/api/proposition';
 

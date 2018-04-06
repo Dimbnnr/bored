@@ -3,8 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UserAuthService } from '../services/user-auth.service';
-import { UserPropositionService } from '../services/user-proposition.service';
+import { AuthService } from '../services/auth.service';
+import { PropositionService } from '../services/proposition.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,9 +15,9 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private AuthService: UserAuthService,
+    private authService: AuthService,
     private activateRouter: ActivatedRoute,
-    private propositionService: UserPropositionService,
+    private propositionService: PropositionService,
 
   ) { }
   user = null;

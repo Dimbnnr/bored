@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAuthService } from '../services/user-auth.service';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
-import { UserPropositionService } from '../services/user-proposition.service';
+import { PropositionService } from '../services/proposition.service';
 import { DatePipe } from '@angular/common';
-// import { FormControl } from '@angular/forms';
-// import { } from 'googlemaps';
-// import { MapsAPILoader } from '@agm/core';
-// import {} from '@types/googlemaps';
-// import { ViewChild, ElementRef, NgZone } from '@angular/core';
-
 
 import { ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -62,11 +57,12 @@ markerClick(m) {
 }
 
   constructor(
-    private service: UserAuthService,
+    private authService: AuthService,
+    private userService: UserService,
     private router: Router,
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
-    private propositionService: UserPropositionService
+    private propositionService: PropositionService
   ) {
     this.zoom = 14;
     // this.lat = 19.3984354;
@@ -96,7 +92,7 @@ navigator.geolocation.getCurrentPosition( pos => {
 
   ngOnInit() {
 
-    this.service.sendloggedin()
+    this.authService.sendloggedin()
       .subscribe(user => {
         this.user = user;
         this.userid = user._id;
@@ -110,7 +106,7 @@ navigator.geolocation.getCurrentPosition( pos => {
   }
 
   getUsers() {
-    this.service.getAllUsers()
+    this.userService.getAllUsers()
     .subscribe(user => {
          this.usersList = user;
           console.log(this.usersList);

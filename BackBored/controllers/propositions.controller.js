@@ -3,19 +3,20 @@ const Proposition = require("../models/Proposition");
 
 exports.postProposition = (req, res, next) => {
     const newProposition = new Proposition({
-        title: req.body.title,    
-        startTimeHour: req.body.startTimeHour,
-        startTimeDate: req.body.startTimeDate,
-        endTimeHour: req.body.endTimeHour,
-        location: req.body.location,
-        owner: req.body.id
+        title:          req.body.title,
+        description:    req.body.description,    
+        startTimeHour:  req.body.startTimeHour,
+        startTimeDate:  req.body.startTimeDate,
+        endTimeHour:    req.body.endTimeHour,
+        location:       req.body.location    
     });
-
     newProposition.save()
-        .then(item => res.status(201).json(item))
+        .then(propositionCreated =>
+            User.findByIdAndUpdate(req.user._id, {$push: { myPropositions : propositionCreated._id}}, { new:true })
+                .then(userUpdated => res.status(201).json(userUpdated)))
+                .catch( err => console.log("Error while saving proposition into array User")) 
         .catch(e => res.status(500).send(e));
-}
-
+}    
 
 exports.getAllPropositions = function (req, res, next) {
     Proposition.find()
@@ -30,15 +31,6 @@ exports.getPropositionById = function (req, res, next) {
         res.status(200).json(item)}) 
         .catch(e => res.status(500).send(e))
 }
-
-exports.getUserProposition = function (req, res, next) {
-    Proposition.find({"owner": req.user._id })
-        .then(item => {
-            console.log(item)
-        res.status(200).json(item)}) 
-        .catch(e => res.status(500).send(e))
-}
-
 
 exports.patchProposition = (req, res, next) => {
     Proposition.findByIdAndUpdate(req.params.id, req.body, {

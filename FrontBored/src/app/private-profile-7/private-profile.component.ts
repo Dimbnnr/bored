@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAuthService } from '../services/user-auth.service';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { } from 'googlemaps';
 import { FileUploader } from 'ng2-file-upload';
-import { UserPropositionService } from '../services/user-proposition.service';
+import { PropositionService } from '../services/proposition.service';
 import { environment } from '../../environments/environment';
 
 // Autocomplete methode to check
@@ -48,16 +49,17 @@ export class PrivateProfileComponent implements OnInit {
   feedback: string;
 
   constructor(
-    private AuthService: UserAuthService,
+    private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
-    private propositionService: UserPropositionService,
+    private propositionService: PropositionService,
+    private userService: UserService,
   //  private mapsAPILoader: MapsAPILoader,
   //  private ngZone: NgZone
   ) { }
 
   ngOnInit() {
-    this.AuthService.sendloggedin()
+    this.authService.sendloggedin()
       .subscribe(user => {
         this.user = user;
         this.uploader.options.url = environment.base_URL + `/api/auth/${this.user._id}/addimg`;
@@ -85,7 +87,7 @@ export class PrivateProfileComponent implements OnInit {
 
    // sent changes
    sendModification() {
-    this.AuthService.patchItem(this.user)
+    this.userService.patchUser(this.user)
     .subscribe(user => {
       this.user = user;
     });
@@ -124,7 +126,7 @@ export class PrivateProfileComponent implements OnInit {
 
   deleteProfile() {
     if (!confirm('Are you certain about leaving Bored Int. Great Network ?')) return;
-    this.AuthService.removeItem(this.user)
+    this.userService.removeUser(this.user)
     .subscribe(user => {
       this.user = user;
     });

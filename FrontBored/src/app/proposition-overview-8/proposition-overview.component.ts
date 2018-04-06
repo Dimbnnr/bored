@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAuthService } from '../services/user-auth.service';
-import { UserPropositionService } from '../services/user-proposition.service';
+import { AuthService } from '../services/auth.service';
+import { PropositionService } from '../services/proposition.service';
+import { UserService } from '../services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { User } from 'firebase';
 
 @Component({
   selector: 'app-proposition-overview',
@@ -15,13 +17,14 @@ base_URL = environment.base_URL;
 proposi;
 propositionList;
   constructor(
-    private AuthService: UserAuthService,
-    private propositionService: UserPropositionService,
+    private authService: AuthService,
+    private propositionService: PropositionService,
+    private userService: UserService,
     private activateRouter: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    this.AuthService.sendloggedin()
+    this.authService.sendloggedin()
       .subscribe(user => {
         this.user = user;
       });
@@ -35,7 +38,7 @@ propositionList;
 
 getDaUserById() {
   this.activateRouter.params.subscribe(params => {
-    this.AuthService.getUserById(params['id'])
+    this.userService.getUserById(params['id'])
     .subscribe(singleUser => this.user = singleUser);
   });
 }

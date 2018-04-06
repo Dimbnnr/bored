@@ -15,10 +15,6 @@
     <i class="material-icons">create</i> Profile </button>
   <button mat-menu-item [routerLink]="['/main-page']">
     <i class="material-icons" >map</i> #Bored Super Map</button>
-  <button [routerLink]="['/signup']" mat-menu-item *ngIf="!user">
-    <i class="material-icons" >tag_faces</i> Sign up</button>
-  <button mat-menu-item *ngIf="!user" [routerLink]="['/login']">
-    <i class="material-icons">vpn_key</i>  Login</button>
 
   <ng-template matMenuContent >
 

@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const controller = require("../controllers/propositions.controller");
+const propositionController = require("../controllers/propositions.controller");
 
 
-router.post('/new', controller.postProposition);
-router.get('/all', controller.getAllPropositions);
-router.get('/:id', controller.getPropositionById);
-router.get('/propuser' ,controller.getUserProposition)
-router.patch('/:id', controller.patchProposition);
-router.delete('/:id', controller.deleteProposition);
+router.get('/all', propositionController.getAllPropositions);
+router.post('/new', propositionController.postProposition);
+router.get('/:id', propositionController.getPropositionById);
+router.patch('/:id', propositionController.patchProposition);
+router.delete('/:id', propositionController.deleteProposition);
 
 
 module.exports = router;

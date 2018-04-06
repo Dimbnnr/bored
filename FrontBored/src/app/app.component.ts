@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserAuthService } from './services/user-auth.service';
-import { UserPropositionService } from './services/user-proposition.service';
+import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
+import { PropositionService } from './services/proposition.service';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +19,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
-  private session: UserAuthService,
-  private propositionService: UserPropositionService) { }
+  private session: AuthService,
+  private propositionService: PropositionService) { }
 
   ngOnInit() {
     // this.session.sendloggedin().subscribe( user => this.success(user));

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import firebase from '../firebase';
 import { ActivatedRoute } from '@angular/router';
-import { UserAuthService } from '../services/user-auth.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -19,18 +19,18 @@ export class ChatComponent implements OnInit {
 
   constructor(
     private activateRoute: ActivatedRoute,
-    private service: UserAuthService
+    private authService: AuthService
 
   ) { }
   elChat = [];
   ngOnInit() {
-    this.activateRoute.params.subscribe(params=>{
+    this.activateRoute.params.subscribe(params => {
       this.idCorrecto = params.id
-    })
+    });
      // era: _value.id ...
     console.log(this.idCorrecto)
 
-    this.service.sendloggedin()
+    this.authService.sendloggedin()
     .subscribe(user => {
       console.log("use",user)
       this.user = user;
@@ -46,7 +46,7 @@ export class ChatComponent implements OnInit {
     //   this.elChat.push(snap.val());
     // });
     firebase.database().ref(this.idCorrecto)
-    .on("child_added", snap=>{
+    .on('child_added', snap => {
       console.log(snap.val())
       this.elChat.push(snap.val());
     });

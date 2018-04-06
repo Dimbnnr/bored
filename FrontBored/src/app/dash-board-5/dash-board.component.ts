@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAuthService } from '../services/user-auth.service';
+import { AuthService } from '../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
@@ -13,13 +13,13 @@ export class DashBoardComponent implements OnInit {
   user;
 
   constructor(
-    private AuthService: UserAuthService,
+    private authService: AuthService,
     private router: Router,
     private activateRouter: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.AuthService.sendloggedin()
+    this.authService.sendloggedin()
       .subscribe(user => {
         this.user = user;
       });
