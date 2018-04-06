@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -9,16 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
   wait: Boolean = false;
-  // progressValue = 60;
-  // color = 'primary';
-  // isDeterminate = true;
-
-  // step(val: number) {
-  //   this.progressValue = Math.max(0, Math.min(100, val + this.progressValue));
-  // }
-  constructor(
-    private router: Router,
-  ) { }
+  constructor(private router: Router, private authService: AuthService) {}
 
 submit() {
   this.wait = true;
@@ -33,5 +24,11 @@ this.wait = false;
 
   ngOnInit() {
   }
+
+  loginFacebook() {
+    this.authService.signup()
+      .subscribe(userCreated => console.log(userCreated));
+  }
+
 
 }

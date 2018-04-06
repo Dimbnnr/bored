@@ -7,15 +7,13 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 const cors           = require("cors");
-// const router = require("./routes/users");
 const session        = require("express-session");
 const passport       = require("passport");
 
 
-const index = require('./routes/index');
-const authUsers = require('./routes/users');
-const proposition = require('./routes/propositions');
-const review = require('./routes/review');
+const authUsersRoutes = require('./routes/users');
+const propositionRoutes = require('./routes/propositions');
+const reviewRoutes = require('./routes/review');
 
 
 const app = express();
@@ -25,16 +23,12 @@ const mongoose = require ('mongoose');
 mongoose.connect(process.env.mongoURL)
   .then(console.log(`Connected to ${process.env.mongoURL}!!!`));
 
-
-
-  const corsOptions = {
+const corsOptions = {
     origin: true,
     credentials: true
-  };
-  app.use(cors(corsOptions));
+};
+app.use(cors(corsOptions));
   
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -62,10 +56,9 @@ require("./configuration/passport")(passport,app);
 
 
 
-app.use('/', index);
-app.use('/api/auth', authUsers);
-app.use('/api/proposition', proposition);
-app.use('/api/review', review);
+app.use('/api/auth', authUsersRoutes);
+app.use('/api/proposition', propositionRoutes);
+app.use('/api/review', reviewRoutes);
 // para hacer deploy en Heroku 
 app.all('/*', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
