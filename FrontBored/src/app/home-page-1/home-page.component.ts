@@ -27,7 +27,8 @@ this.wait = false;
   }
 
   loginFacebook() {
-    this.authService.signInWithFB();
+    this.authService.signInWithFB()
+      .then(user => console.log(user));
   }
 
 

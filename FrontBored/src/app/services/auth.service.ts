@@ -5,7 +5,7 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 
-import { AuthService } from 'angular4-social-login';
+import { AuthService } from 'angularx-social-login';
 import { FacebookLoginProvider, GoogleLoginProvider } from 'angular4-social-login';
 
 @Injectable()
@@ -15,22 +15,16 @@ export class AuthenticationService {
 
   constructor(private http: Http, private authService: AuthService) { }
 
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      console.log('esto vale user cuando lo traigo de Facebook');
-      console.log(user);
-    });
-  }
-
-  signup() {
-    return this.http.get(`${this.BASE_URL}/facebook`, {withCredentials: true})
-    .map(res => res.json())
-    .catch(err => {
-      alert(JSON.parse(err._body).message);
-      return Observable.throw(err);
-    });
+  signInWithFB() {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID)
+      .then( user => {
+        return this.http.post(`${this.BASE_URL}/login`, user, {withCredentials:true})
+          .map(res => res.json())
+          .catch(err => {
+            alert(JSON.parse(err._body).message);
+            return Observable.throw(err);
+          });
+      });
   }
 
   sendloggedin() {

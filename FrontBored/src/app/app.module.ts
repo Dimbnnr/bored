@@ -9,13 +9,19 @@ import { Routes, RouterModule} from '@angular/router';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { AgmCoreModule } from '@agm/core';
 
-import { SocialLoginModule, AuthServiceConfig } from 'angular4-social-login';
-import { GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
+import { SocialLoginModule, AuthServiceConfig, LoginOpt  } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+
+const fbLoginOptions: LoginOpt = {
+  scope: 'public_profile,email',
+  return_scopes: true,
+  enable_profile_selector: true
+}; // https://developers.facebook.com/docs/reference/javascript/FB.login/v2.11
 
 const config = new AuthServiceConfig([
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('560200537686094')
+    provider: new FacebookLoginProvider('560200537686094', fbLoginOptions)
   }
 ]);
 
@@ -71,7 +77,9 @@ const routes = [
   { path: 'user/:id/proposition-overview/:propid', component: PropositionOverviewComponent }
 ];
 
-
+export function provideConfig (){
+  return config;
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,7 +119,11 @@ const routes = [
     // MatNativeDateModule,
     SocialLoginModule.initialize(config)
   ],
-  providers: [AuthenticationService, PropositionService, UserService],
+  providers: [
+    AuthenticationService,
+    PropositionService,
+    UserService,
+    {provide: AuthServiceConfig, useFactory: provideConfig}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
