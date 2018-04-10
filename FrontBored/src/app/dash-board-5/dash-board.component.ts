@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthenticationService } from '../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
@@ -13,7 +13,7 @@ export class DashBoardComponent implements OnInit {
   user;
 
   constructor(
-    private authService: AuthService,
+    private authService: AuthenticationService,
     private router: Router,
     private activateRouter: ActivatedRoute
   ) { }

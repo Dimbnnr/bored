@@ -9,6 +9,16 @@ import { Routes, RouterModule} from '@angular/router';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { AgmCoreModule } from '@agm/core';
 
+import { SocialLoginModule, AuthServiceConfig } from 'angular4-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
+
+const config = new AuthServiceConfig([
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('560200537686094')
+  }
+]);
+
 // Components:
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page-1/home-page.component';
@@ -24,7 +34,7 @@ import { SignupFormComponent } from './signup-form-3/signup-form.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 // Import Services
-import {AuthService} from './services/auth.service';
+import {AuthenticationService} from './services/auth.service';
 import {UserService} from './services/user.service';
 import {PropositionService} from './services/proposition.service';
 
@@ -56,7 +66,6 @@ const routes = [
   { path: 'home',  component: HomePageComponent },
   { path: 'dash-board', component: DashBoardComponent },
   { path: 'preview', component: PreviewComponent },
-  { path: 'signup', component: SignupFormComponent },
   { path: 'main-page', component: MainPageComponent },
   { path: ':id/private-profile', component: PrivateProfileComponent },
   { path: 'user/:id/proposition-overview/:propid', component: PropositionOverviewComponent }
@@ -99,9 +108,10 @@ const routes = [
     MatSliderModule,
     MatCardModule,
     MatDatepickerModule,
-    // MatNativeDateModule
+    // MatNativeDateModule,
+    SocialLoginModule.initialize(config)
   ],
-  providers: [AuthService, PropositionService, UserService],
+  providers: [AuthenticationService, PropositionService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

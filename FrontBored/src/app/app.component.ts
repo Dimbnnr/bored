@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './services/auth.service';
+import { AuthenticationService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { PropositionService } from './services/proposition.service';
 
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
-  private session: AuthService,
+  private session: AuthenticationService,
   private propositionService: PropositionService) { }
 
   ngOnInit() {

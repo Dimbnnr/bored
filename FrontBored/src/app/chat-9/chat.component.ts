@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import firebase from '../firebase';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthenticationService } from '../services/auth.service';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class ChatComponent implements OnInit {
 
   constructor(
     private activateRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthenticationService
 
   ) { }
   elChat = [];

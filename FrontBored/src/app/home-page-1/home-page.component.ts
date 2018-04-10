@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthenticationService } from '../services/auth.service';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -9,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class HomePageComponent implements OnInit {
   wait: Boolean = false;
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthenticationService) {}
 
 submit() {
   this.wait = true;
@@ -26,8 +27,7 @@ this.wait = false;
   }
 
   loginFacebook() {
-    this.authService.signup()
-      .subscribe(userCreated => console.log(userCreated));
+    this.authService.signInWithFB();
   }
 
 

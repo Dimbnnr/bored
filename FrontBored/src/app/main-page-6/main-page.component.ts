@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthenticationService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { PropositionService } from '../services/proposition.service';
@@ -57,7 +57,7 @@ markerClick(m) {
 }
 
   constructor(
-    private authService: AuthService,
+    private authService: AuthenticationService,
     private userService: UserService,
     private router: Router,
     private mapsAPILoader: MapsAPILoader,

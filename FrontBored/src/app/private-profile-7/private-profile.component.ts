@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthenticationService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { } from 'googlemaps';
@@ -49,7 +49,7 @@ export class PrivateProfileComponent implements OnInit {
   feedback: string;
 
   constructor(
-    private authService: AuthService,
+    private authService: AuthenticationService,
     private route: ActivatedRoute,
     private router: Router,
     private propositionService: PropositionService,

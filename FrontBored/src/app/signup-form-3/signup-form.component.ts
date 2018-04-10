@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthenticationService } from '../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
 import { } from 'googlemaps';
@@ -30,7 +30,7 @@ uploader: FileUploader = new FileUploader({
 
 
   constructor(
-    private authService: AuthService,
+    private authService: AuthenticationService,
     private router: Router,
     private route: ActivatedRoute,
     private mapsAPILoader: MapsAPILoader,

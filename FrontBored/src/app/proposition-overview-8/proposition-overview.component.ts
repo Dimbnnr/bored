@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthenticationService } from '../services/auth.service';
 import { PropositionService } from '../services/proposition.service';
 import { UserService } from '../services/user.service';
 import { ActivatedRoute } from '@angular/router';
@@ -17,7 +17,7 @@ base_URL = environment.base_URL;
 proposi;
 propositionList;
   constructor(
-    private authService: AuthService,
+    private authService: AuthenticationService,
     private propositionService: PropositionService,
     private userService: UserService,
     private activateRouter: ActivatedRoute,

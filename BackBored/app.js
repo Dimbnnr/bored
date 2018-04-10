@@ -11,10 +11,11 @@ const session        = require("express-session");
 const passport       = require("passport");
 
 
-const authUsersRoutes = require('./routes/users');
+
+const authRoutes = require ('./routes/auth')
+const usersRoutes = require('./routes/users');
 const propositionRoutes = require('./routes/propositions');
 const reviewRoutes = require('./routes/review');
-
 
 const app = express();
 
@@ -25,10 +26,9 @@ mongoose.connect(process.env.mongoURL)
 
 const corsOptions = {
     origin: true,
-    credentials: true
+    credentials: true,    
 };
 app.use(cors(corsOptions));
-  
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,7 +42,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-
 app.use(session({ // para los cookies
   secret: "lab-angular-authentication", //nombre de la cookie que se guarda en el navegador
   resave: true,
@@ -50,13 +49,12 @@ app.use(session({ // para los cookies
   cookie: { httpOnly: true, maxAge: 2419200000 } // el cookie se genera solo cuando hay una llamada a una http
 }));
 
-
 // Passport configuration
 require("./configuration/passport")(passport,app);
 
 
-
-app.use('/api/auth', authUsersRoutes);
+app.use('/api/auth', authRoutes)
+app.use('/api/user', usersRoutes);
 app.use('/api/proposition', propositionRoutes);
 app.use('/api/review', reviewRoutes);
 // para hacer deploy en Heroku 
